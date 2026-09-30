@@ -1,0 +1,50 @@
+<div class="month">
+  <div class="month__field">
+    <label class="visually-hidden" for="booking-month">Month</label>
+    <select
+      class="month__select"
+      id="booking-month"
+      (change)="onMonthChange($event)"
+    >
+      @for (month of months; track month) {
+        <option [value]="month" [selected]="month === selectedMonth()">
+          {{ month }}
+        </option>
+      }
+    </select>
+    <svg
+      class="month__caret"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  </div>
+
+  <div class="month__grid" role="grid" [attr.aria-label]="selectedMonth() + ' ' + SCHEDULE_YEAR_LABEL">
+    <div class="month__week" role="row">
+      @for (weekday of weekdays; track weekday) {
+        <span class="month__weekday" role="columnheader">{{ weekday }}</span>
+      }
+    </div>
+
+    @for (week of weeks(); track $index) {
+      <div class="month__week" role="row">
+        @for (day of week; track day.key) {
+          <span
+            class="month__day"
+            [class.month__day--muted]="day.muted"
+            role="gridcell"
+            >{{ day.day }}</span
+          >
+        }
+      </div>
+    }
+  </div>
+</div>

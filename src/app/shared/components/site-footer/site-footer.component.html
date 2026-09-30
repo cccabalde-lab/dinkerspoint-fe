@@ -1,0 +1,56 @@
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copyright">&copy; {{ year }} Dinkerspoint. All rights reserved.</p>
+
+    <div class="footer__social">
+      <a
+        class="footer__social-link"
+        [href]="facebookUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Dinkerspoint on Facebook"
+      >
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+          <path
+            d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044 24 5.463 18.627 0 12.044 0h-.42c-4.574 0-8.58 3.894-8.632 8.468a8.44 8.44 0 0 0 .02.728C2.843 9.181 2.94 12.388 3.6 15.131a8.9 8.9 0 0 0 4.554 4.676l.876-.242a8.9 8.9 0 0 0 4.554-4.676l.55-2.879-.098-.242.206-.986h3.224s.494-1.078.494-4.29Z"
+          />
+        </svg>
+      </a>
+
+      @if (contactEmail; as email) {
+        <a
+          class="footer__social-link"
+          [href]="'mailto:' + email"
+          [attr.aria-label]="'Email us at ' + email"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path
+              d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.367V5.457c0-2.023 2.309-2.783 3.927-1.299L12 12.067l8.074-7.909C21.693 2.673 24 3.435 24 5.457Z"
+            />
+          </svg>
+        </a>
+      } @else {
+        <!-- Contact email pending: shown for layout only, intentionally not a link. -->
+        <span
+          class="footer__social-link footer__social-link--placeholder"
+          role="img"
+          aria-label="Gmail — contact email coming soon"
+          title="Contact email to be added"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+            <path
+              d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.367V5.457c0-2.023 2.309-2.783 3.927-1.299L12 12.067l8.074-7.909C21.693 2.673 24 3.435 24 5.457Z"
+            />
+          </svg>
+        </span>
+      }
+    </div>
+
+    <!-- TODO: link these once the legal pages exist. -->
+    <nav class="footer__legal" aria-label="Legal">
+      <a class="footer__legal-link" href="#">Terms &amp; Conditions</a>
+      <span class="footer__legal-divider" aria-hidden="true"></span>
+      <a class="footer__legal-link" href="#">Privacy Policy</a>
+    </nav>
+  </div>
+</footer>

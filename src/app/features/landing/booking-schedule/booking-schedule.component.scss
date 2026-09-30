@@ -1,0 +1,188 @@
+:host {
+  display: block;
+}
+
+.schedule {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  gap: 1.75rem;
+  /* Right padding reserves the gutter the help button floats in. */
+  padding: 1.25rem 4.5rem 1.25rem 0;
+}
+
+.schedule__main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.schedule__legend {
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--dp-color-border);
+}
+
+.schedule__courts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.5rem;
+  /* Explicit width so the auto margins can still centre it as a column flex item. */
+  width: 100%;
+  max-width: 36rem;
+  margin: 1rem auto 0;
+}
+
+.court {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.court__name {
+  margin: 0;
+  padding: 0.5rem;
+  background: var(--dp-color-court-header);
+  border: 1px solid var(--dp-color-border-strong);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  color: var(--dp-color-text);
+}
+
+.court__slots {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  /* Keeps a long day from stretching the section unbounded. */
+  max-height: 14rem;
+  overflow-y: auto;
+}
+
+.slot {
+  width: 100%;
+  padding: 0.5rem;
+  background: var(--dp-color-surface);
+  border: 1px solid var(--dp-color-border-strong);
+  font-size: 0.875rem;
+  text-align: center;
+  color: var(--dp-color-text);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.slot--available:hover {
+  border-color: var(--dp-color-accent);
+  color: var(--dp-color-accent);
+}
+
+.slot--available:focus-visible {
+  outline: 2px solid var(--dp-color-accent);
+  outline-offset: 1px;
+}
+
+.slot--booked {
+  background: #f0f0f0;
+  color: var(--dp-status-booked);
+  cursor: not-allowed;
+}
+
+.slot--closed {
+  background: #fdeceb;
+  color: var(--dp-status-closed);
+  cursor: not-allowed;
+}
+
+.slot--selected {
+  background: var(--dp-status-selected);
+  border-color: var(--dp-status-selected);
+  color: #fff;
+  font-weight: 700;
+}
+
+.schedule__panel {
+  display: flex;
+  flex: 0 0 15rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0.75rem;
+  background: var(--dp-color-surface);
+  border: 1px solid var(--dp-color-border);
+}
+
+.schedule__continue {
+  width: 100%;
+  padding: 0.8125rem 1rem;
+  background: var(--dp-color-accent);
+  border: 0;
+  border-radius: var(--dp-radius-pill);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.schedule__continue:hover {
+  background: var(--dp-color-accent-hover);
+  box-shadow: 0 2px 8px rgb(26 157 240 / 35%);
+}
+
+.schedule__continue:focus-visible {
+  outline: 2px solid var(--dp-color-text);
+  outline-offset: 2px;
+}
+
+.schedule__help {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .schedule {
+    flex-direction: column;
+    padding-right: 0;
+  }
+
+  .schedule__panel {
+    flex: 0 0 auto;
+  }
+
+  .schedule__courts {
+    max-width: 32rem;
+  }
+
+  .schedule__help {
+    right: 1rem;
+    bottom: auto;
+    top: 1rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .schedule {
+    padding: 1rem 3.5rem 1rem 0;
+    gap: 1.25rem;
+  }
+
+  /* Below three columns the courts scroll sideways rather than squashing. */
+  .schedule__courts {
+    display: flex;
+    gap: 0.75rem;
+    max-width: none;
+    margin: 1rem 0 0;
+    padding-bottom: 0.25rem;
+    overflow-x: auto;
+  }
+
+  .court {
+    flex: 0 0 8rem;
+  }
+
+  .court__slots {
+    max-height: none;
+  }
+}

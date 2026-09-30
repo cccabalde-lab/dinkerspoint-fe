@@ -1,0 +1,37 @@
+<header class="header">
+  <div class="header__inner">
+    <!-- TODO: replace the text placeholder with the real Dinkerspoint logo asset. -->
+    <a class="header__logo" routerLink="/">LOGO</a>
+
+    <nav class="header__nav" aria-label="Main">
+      @for (link of links; track link.path) {
+        <a
+          class="header__link"
+          [routerLink]="link.path"
+          routerLinkActive="header__link--active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >{{ link.label }}</a
+        >
+      }
+    </nav>
+
+    <!-- TODO: wire up once authentication is available. -->
+    <button class="header__account" type="button">
+      <svg
+        class="header__account-icon"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.6"
+        stroke-linecap="round"
+        aria-hidden="true"
+        focusable="false"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <circle cx="12" cy="10" r="3" />
+        <path d="M5.8 18.4a7.2 7.2 0 0 1 12.4 0" />
+      </svg>
+      <span class="header__account-label">Account</span>
+    </button>
+  </div>
+</header>

@@ -1,0 +1,47 @@
+:host {
+  display: block;
+  /* Fill the gap between the site header and footer. */
+  flex: 1 1 auto;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.landing__panel {
+  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  background: var(--dp-color-surface);
+  border: 1px solid var(--dp-color-border);
+}
+
+.landing__panel--policy {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1.75rem;
+}
+
+.landing__month {
+  align-self: start;
+}
+
+.landing__policy {
+  max-width: 36rem;
+}
+
+@media (max-width: 900px) {
+  .landing__panel--policy {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Stop the calendar stretching across a wide single column. */
+  .landing__month {
+    max-width: 15rem;
+  }
+
+  .landing__policy {
+    max-width: none;
+  }
+}

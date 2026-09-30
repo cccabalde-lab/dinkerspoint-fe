@@ -1,0 +1,12 @@
+<section class="policy" aria-labelledby="booking-policy-heading">
+  <h2 class="policy__heading" id="booking-policy-heading">Booking Policy</h2>
+
+  <div class="policy__rules">
+    @for (rule of rules; track rule.title) {
+      <div class="policy__rule">
+        <h3 class="policy__rule-title">{{ rule.title }}</h3>
+        <p class="policy__rule-body">{{ rule.body }}</p>
+      </div>
+    }
+  </div>
+</section>
