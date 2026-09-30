@@ -1,0 +1,8 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// The outlet itself stays unstyled: it is only a placeholder. Each routed page
+// opts into filling the space between the header and footer via its own host.

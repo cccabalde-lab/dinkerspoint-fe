@@ -1,0 +1,38 @@
+<section class="schedule" aria-labelledby="booking-schedule-heading">
+  <h2 class="visually-hidden" id="booking-schedule-heading">Booking Schedule</h2>
+
+  <div class="schedule__main">
+    <div class="schedule__legend">
+      <app-booking-status-legend />
+    </div>
+
+    <div class="schedule__courts">
+      @for (court of courts; track court.id) {
+        <div class="court">
+          <h3 class="court__name">{{ court.name }}</h3>
+
+          <div class="court__slots">
+            @for (slot of court.slots; track slot.label) {
+              <button
+                class="slot slot--{{ statusOf(court, slot) }}"
+                type="button"
+                [disabled]="isLocked(slot)"
+                [attr.aria-pressed]="isSelected(court, slot)"
+                (click)="select(court, slot)"
+              >
+                {{ slot.label }}
+              </button>
+            }
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="schedule__panel">
+    <!-- TODO: hand off to the booking/payment flow once the backend exists. -->
+    <button class="schedule__continue" type="button">Continue</button>
+  </div>
+
+  <app-help-button class="schedule__help" />
+</section>

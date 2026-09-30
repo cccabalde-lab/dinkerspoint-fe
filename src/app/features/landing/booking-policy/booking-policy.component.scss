@@ -1,0 +1,34 @@
+:host {
+  display: block;
+}
+
+.policy__heading {
+  margin: 0;
+  padding-bottom: 0.625rem;
+  border-bottom: 1px solid var(--dp-color-border);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--dp-color-text);
+}
+
+.policy__rules {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  padding-top: 0.875rem;
+}
+
+.policy__rule-title {
+  margin: 0 0 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--dp-color-text);
+}
+
+.policy__rule-body {
+  margin: 0;
+  font-size: 0.75rem;
+  line-height: 1.55;
+  color: var(--dp-color-text-muted);
+}

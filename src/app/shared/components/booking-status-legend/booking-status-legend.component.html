@@ -1,0 +1,11 @@
+<ul class="legend" aria-label="Booking status legend">
+  @for (entry of entries; track entry.status) {
+    <li class="legend__item">
+      <span class="legend__label">{{ entry.label }}</span>
+      <span
+        class="legend__swatch legend__swatch--{{ entry.status }}"
+        aria-hidden="true"
+      ></span>
+    </li>
+  }
+</ul>
