@@ -9,6 +9,18 @@ export const routes: Routes = [
         (m) => m.LandingPageComponent
       )
   },
+  {
+    path: 'login',
+    title: 'Sign in · Dinkerspoint',
+    loadComponent: () =>
+      import('./features/auth/sign-in/sign-in.component').then((m) => m.SignInComponent)
+  },
+  {
+    path: 'signup',
+    title: 'Sign up · Dinkerspoint',
+    loadComponent: () =>
+      import('./features/auth/sign-up/sign-up.component').then((m) => m.SignUpComponent)
+  },
   // Maps and Bookings ship in their own feature branches. Until then the header
   // links still resolve instead of throwing, and land back on the home page.
   { path: '**', redirectTo: '' }

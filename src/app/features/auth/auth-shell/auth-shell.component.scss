@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem 1rem;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 25rem;
+  padding: 2.5rem 2.25rem;
+  background: var(--dp-color-surface);
+  border: 1px solid var(--dp-color-border);
+  border-radius: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  :host {
+    align-items: flex-start;
+    padding: 1.5rem 1rem;
+  }
+
+  .auth-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+}

@@ -1,0 +1,64 @@
+// Layout shared by the sign-in and sign-up forms.
+//
+// Each page pulls this in and only sets `--auth-submit` on its host, which
+// keeps the two forms from drifting apart while still allowing the reference
+// designs' different Continue button colours.
+
+@mixin auth-form {
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .form__forgot-row {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .form__forgot {
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--dp-color-accent);
+    text-decoration: none;
+  }
+
+  .form__forgot:hover {
+    text-decoration: underline;
+  }
+
+  .form__forgot:focus-visible {
+    outline: 2px solid var(--dp-color-accent);
+    outline-offset: 2px;
+  }
+
+  .form__submit {
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.6875rem 1rem;
+    background: var(--auth-submit);
+    border: 0;
+    border-radius: var(--dp-radius-pill);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .form__submit:hover {
+    background: var(--auth-submit-hover);
+    box-shadow: 0 2px 8px rgb(0 0 0 / 14%);
+  }
+
+  .form__submit:focus-visible {
+    outline: 2px solid var(--dp-color-text);
+    outline-offset: 2px;
+  }
+
+  .divider {
+    height: 1px;
+    margin: 1.5rem 0;
+    background: var(--dp-color-border);
+  }
+}

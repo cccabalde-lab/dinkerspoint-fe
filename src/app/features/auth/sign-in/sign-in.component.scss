@@ -1,0 +1,11 @@
+@use '../auth-form';
+
+:host {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  --auth-submit: var(--dp-color-auth-signin);
+  --auth-submit-hover: var(--dp-color-auth-signin-hover);
+}
+
+@include auth-form.auth-form;
