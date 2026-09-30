@@ -1,0 +1,14 @@
+<label class="field">
+  <span class="field__label">{{ label }}</span>
+  <input
+    class="field__input"
+    [class.field__input--invalid]="showError"
+    [type]="type"
+    [formControl]="control"
+    [attr.autocomplete]="autocomplete"
+  />
+</label>
+
+@if (showError) {
+  <p class="field__error">{{ error }}</p>
+}

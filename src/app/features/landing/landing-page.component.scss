@@ -1,11 +1,12 @@
 :host {
-  display: block;
-  /* Fill the gap between the site header and footer. */
+  display: flex;
   flex: 1 1 auto;
+  flex-direction: column;
 }
 
 .landing {
   display: flex;
+  flex: 1 1 auto;
   flex-direction: column;
   gap: 0.5rem;
 }

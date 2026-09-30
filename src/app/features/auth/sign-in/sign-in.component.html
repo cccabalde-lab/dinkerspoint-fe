@@ -1,0 +1,29 @@
+<app-auth-shell>
+  <app-auth-tabs />
+
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <app-text-field
+      label="Username or Email"
+      autocomplete="username"
+      [control]="form.controls.usernameOrEmail"
+    />
+
+    <app-text-field
+      label="Password"
+      type="password"
+      autocomplete="current-password"
+      [control]="form.controls.password"
+    />
+
+    <div class="form__forgot-row">
+      <!-- TODO: route to the password reset flow once it exists. -->
+      <a class="form__forgot" href="#">Forgot Password?</a>
+    </div>
+
+    <button class="form__submit" type="submit">Continue</button>
+  </form>
+
+  <div class="divider"></div>
+
+  <app-google-button />
+</app-auth-shell>
