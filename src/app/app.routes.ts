@@ -38,7 +38,7 @@ export const routes: Routes = [
         (m) => m.BookingDetailsComponent
       )
   },
-  // Maps and Payments ship in their own feature branches. Until then the header
-  // links still resolve instead of throwing, and land back on the home page.
+  // Maps ships in its own feature branch. Until then the header link still
+  // resolves instead of throwing, and lands back on the home page.
   { path: '**', redirectTo: '' }
 ];
