@@ -46,11 +46,23 @@
 }
 
 .card__total {
-  /* Absorbs the slack, keeping the total mid-card. */
+  /* Absorbs the slack, keeping the total mid-card and the chevron hard right. */
   flex: 1 1 auto;
   min-width: 0;
   font-size: 0.75rem;
   text-align: center;
+}
+
+.card__chevron {
+  flex: none;
+  width: 14px;
+  height: 14px;
+  color: var(--dp-color-text);
+  transition: transform 0.15s ease;
+}
+
+.card:hover .card__chevron {
+  transform: translateX(2px);
 }
 
 @media (max-width: 520px) {
