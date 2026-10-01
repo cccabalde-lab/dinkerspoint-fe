@@ -9,18 +9,10 @@ import { UserBooking } from '../features/bookings/models/booking.model';
 export const UPCOMING_BOOKINGS: readonly UserBooking[] = [
   {
     id: 'bk-1001',
-    date: 'August 4',
+    date: 'August 3',
+    time: '3PM - 4PM',
     court: 'Court 1',
-    time: '3 PM - 5 PM',
-    total: 1050,
-    status: 'upcoming'
-  },
-  {
-    id: 'bk-1002',
-    date: 'August 4',
-    court: 'Court 1',
-    time: '3 PM - 5 PM',
-    total: 1050,
+    total: 350,
     status: 'upcoming'
   }
 ];
@@ -29,16 +21,16 @@ export const BOOKING_HISTORY: readonly UserBooking[] = [
   {
     id: 'bk-2001',
     date: 'August 1',
+    time: '1PM - 3PM',
     court: 'Court 2',
-    time: '1 PM - 3 PM',
     total: 1050,
     status: 'completed'
   },
   {
     id: 'bk-2002',
     date: 'July 28',
+    time: '10AM - 12PM',
     court: 'Court 3',
-    time: '10 AM - 12 PM',
     total: 1400,
     status: 'completed'
   }

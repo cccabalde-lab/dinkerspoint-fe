@@ -1,6 +1,9 @@
 /** Whether a booking is still ahead of the user or already completed. */
 export type UserBookingStatus = 'upcoming' | 'completed';
 
+/** Which list the My Bookings screen is showing. */
+export type BookingListTab = 'upcoming' | 'history';
+
 /**
  * One booking in the signed-in user's list.
  *

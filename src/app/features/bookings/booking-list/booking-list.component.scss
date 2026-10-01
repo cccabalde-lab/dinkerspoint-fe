@@ -2,30 +2,23 @@
   display: block;
 }
 
-.section__title {
-  margin: 0 0 0.625rem;
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--dp-color-text);
-}
-
-.section__panel {
+.panel {
   padding: 1.25rem clamp(1rem, 2.5vw, 1.5rem);
   background: var(--dp-color-surface);
   border: 1px solid var(--dp-color-border);
   border-radius: 0.75rem;
+  /* Keeps a short list from collapsing the panel, as in the reference. */
+  min-height: 18rem;
 }
 
-.section__list {
+.panel__list {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.section__empty {
+.panel__empty {
   margin: 0;
-  padding: 1.5rem 0;
   font-size: 0.8125rem;
-  text-align: center;
   color: var(--dp-color-text-muted);
 }

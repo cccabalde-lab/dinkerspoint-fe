@@ -1,0 +1,11 @@
+<div class="panel" role="tabpanel" [id]="panelId()">
+  @if (bookings().length) {
+    <div class="panel__list">
+      @for (booking of bookings(); track booking.id) {
+        <app-booking-card [booking]="booking" />
+      }
+    </div>
+  } @else {
+    <p class="panel__empty">{{ emptyMessage() }}</p>
+  }
+</div>

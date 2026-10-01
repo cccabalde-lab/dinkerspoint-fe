@@ -1,14 +1,14 @@
 <main class="bookings">
-  <app-booking-section
-    title="Upcoming Bookings"
-    [bookings]="upcoming()"
-    emptyMessage="No upcoming bookings"
+  <app-booking-tabs
+    [active]="activeTab()"
+    [panelId]="panelId"
+    (tabChange)="activeTab.set($event)"
   />
 
-  <app-booking-section
-    title="Booking History"
-    [bookings]="history()"
-    emptyMessage="No booking history"
+  <app-booking-list
+    [bookings]="visibleBookings()"
+    [emptyMessage]="emptyMessage()"
+    [panelId]="panelId"
   />
 </main>
 
