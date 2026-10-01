@@ -1,0 +1,15 @@
+<main class="bookings">
+  <app-booking-section
+    title="Upcoming Bookings"
+    [bookings]="upcoming()"
+    emptyMessage="No upcoming bookings"
+  />
+
+  <app-booking-section
+    title="Booking History"
+    [bookings]="history()"
+    emptyMessage="No booking history"
+  />
+</main>
+
+<app-site-footer />

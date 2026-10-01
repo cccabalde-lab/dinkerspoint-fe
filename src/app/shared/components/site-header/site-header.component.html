@@ -9,7 +9,7 @@
           class="header__link"
           [routerLink]="link.path"
           routerLinkActive="header__link--active"
-          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLinkActiveOptions]="{ exact: link.exact ?? true }"
           >{{ link.label }}</a
         >
       }
@@ -31,7 +31,7 @@
         <circle cx="12" cy="10" r="3" />
         <path d="M5.8 18.4a7.2 7.2 0 0 1 12.4 0" />
       </svg>
-      <span class="header__account-label">Account</span>
+      <span class="header__account-label">User</span>
     </button>
   </div>
 </header>

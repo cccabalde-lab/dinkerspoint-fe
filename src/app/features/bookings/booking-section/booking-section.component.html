@@ -1,0 +1,15 @@
+<section class="section" [attr.aria-labelledby]="headingId">
+  <h2 class="section__title" [id]="headingId">{{ title() }}</h2>
+
+  <div class="section__panel">
+    @if (bookings().length) {
+      <div class="section__list">
+        @for (booking of bookings(); track booking.id) {
+          <app-booking-card [booking]="booking" />
+        }
+      </div>
+    } @else {
+      <p class="section__empty">{{ emptyMessage() }}</p>
+    }
+  </div>
+</section>
