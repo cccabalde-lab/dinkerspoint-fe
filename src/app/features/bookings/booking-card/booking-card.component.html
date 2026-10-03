@@ -1,0 +1,19 @@
+<a class="card" [routerLink]="['/bookings', booking().id]">
+  <span class="card__info">
+    <span class="card__date">{{ booking().date }}</span>
+    <span class="card__line">{{ booking().time }}</span>
+    <span class="card__line">{{ booking().court }}</span>
+  </span>
+
+  <span class="card__total">Total: &#8369;{{ booking().total }}</span>
+
+  <svg
+    class="card__chevron"
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <path d="M8.5 5.5 15 12l-6.5 6.5V5.5Z" />
+  </svg>
+</a>

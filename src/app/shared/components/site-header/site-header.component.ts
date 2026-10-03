@@ -5,6 +5,8 @@ import { AuthService } from '../../../core/auth/auth.service';
 interface NavLink {
   readonly label: string;
   readonly path: string;
+  /** Whether only the exact path counts as active. Defaults to true. */
+  readonly exact?: boolean;
 }
 
 @Component({
@@ -21,7 +23,7 @@ export class SiteHeaderComponent {
   protected readonly links: readonly NavLink[] = [
     { label: 'Home', path: '/' },
     { label: 'Maps', path: '/maps' },
-    { label: 'Bookings', path: '/bookings' }
+    { label: 'My Bookings', path: '/bookings', exact: false }
   ];
 
   protected readonly isAuthenticated = this.auth.isAuthenticated;

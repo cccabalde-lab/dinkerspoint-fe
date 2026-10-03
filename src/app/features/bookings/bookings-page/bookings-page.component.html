@@ -1,0 +1,15 @@
+<main class="bookings">
+  <app-booking-tabs
+    [active]="activeTab()"
+    [panelId]="panelId"
+    (tabChange)="activeTab.set($event)"
+  />
+
+  <app-booking-list
+    [bookings]="visibleBookings()"
+    [emptyMessage]="emptyMessage()"
+    [panelId]="panelId"
+  />
+</main>
+
+<app-site-footer />

@@ -1,0 +1,36 @@
+<main class="details">
+  <div class="details__panel">
+    <h1 class="details__title">Booking Details</h1>
+
+    @if (booking(); as booking) {
+      <dl class="details__list">
+        <div class="details__row">
+          <dt>Booking</dt>
+          <dd>{{ booking.id }}</dd>
+        </div>
+        <div class="details__row">
+          <dt>Date</dt>
+          <dd>{{ booking.date }}</dd>
+        </div>
+        <div class="details__row">
+          <dt>Court</dt>
+          <dd>{{ booking.court }}</dd>
+        </div>
+        <div class="details__row">
+          <dt>Time</dt>
+          <dd>{{ booking.time }}</dd>
+        </div>
+        <div class="details__row">
+          <dt>Total</dt>
+          <dd>&#8369;{{ booking.total }}</dd>
+        </div>
+      </dl>
+    } @else {
+      <p class="details__empty">Booking not found.</p>
+    }
+
+    <a class="details__back" routerLink="/bookings">Back to My Bookings</a>
+  </div>
+</main>
+
+<app-site-footer />
