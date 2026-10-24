@@ -127,7 +127,6 @@
   align-items: center;
   justify-content: flex-start;
   justify-self: end;
-  gap: 0.5rem;
   min-height: 2.5rem;
   min-width: 0;
   padding: 0 0.25rem;
@@ -137,6 +136,13 @@
   color: var(--dp-color-text);
   cursor: pointer;
   transition: color 0.15s ease;
+}
+
+.header__account-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .header__account:hover {
