@@ -21,7 +21,6 @@
       @for (link of links; track link.path) {
         <a
           class="header__link"
-          mat-button
           [routerLink]="link.path"
           routerLinkActive="header__link--active"
           [routerLinkActiveOptions]="{ exact: link.exact ?? true }"
