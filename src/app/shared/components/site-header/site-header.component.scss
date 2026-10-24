@@ -21,12 +21,19 @@
 }
 
 .header__logo {
+  display: inline-flex;
+  align-items: center;
   justify-self: start;
-  font-size: 1.5rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: var(--dp-color-text);
-  text-decoration: none;
+  min-width: 0;
+  height: 4rem;
+  padding: 0;
+}
+
+.header__logo-image {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
 }
 
 .header__logo:focus-visible {
