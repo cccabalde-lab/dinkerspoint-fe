@@ -8,12 +8,12 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   background: var(--dp-color-surface-muted);
 }
 
 .landing__panel {
-  padding: 1.75rem clamp(1rem, 5vw, 4rem);
+  padding: 2rem clamp(1rem, 6vw, 4.5rem);
   background: var(--dp-color-surface);
   border: 1px solid var(--dp-color-border);
 }
@@ -21,22 +21,23 @@
 .landing__panel--policy {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
 }
 
 .landing__title {
   margin: 0;
-  font-size: 1.75rem;
+  font-size: 1.875rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--dp-color-text);
+  align-self: flex-start;
 }
 
 .landing__controls {
   display: grid;
-  grid-template-columns: 16rem minmax(0, 1fr);
+  grid-template-columns: minmax(17rem, 19rem) minmax(0, 1fr);
   align-items: start;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .landing__month {
@@ -44,16 +45,17 @@
 }
 
 .landing__policy {
-  max-width: 44rem;
+  max-width: 100%;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .landing__controls {
     grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
   }
 
   .landing__month {
-    max-width: 18rem;
+    max-width: 19rem;
   }
 
   .landing__policy {
@@ -62,12 +64,20 @@
 }
 
 @media (max-width: 640px) {
+  .landing {
+    gap: 0.875rem;
+  }
+
   .landing__panel {
-    padding: 1.25rem clamp(0.875rem, 4vw, 1.25rem);
+    padding: 1.375rem clamp(0.875rem, 4vw, 1.5rem);
+  }
+
+  .landing__panel--policy {
+    gap: 1.25rem;
   }
 
   .landing__title {
-    font-size: 1.5rem;
+    font-size: 1.625rem;
   }
 
   .landing__month {
