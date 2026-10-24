@@ -9,7 +9,7 @@
   align-items: start;
   gap: 2rem;
   /* Right padding reserves the gutter the help button floats in. */
-  padding: 2rem 4.5rem 2rem 0;
+  padding: 0 4.5rem 0 0;
 }
 
 .schedule__main {
@@ -309,7 +309,7 @@
 
 @media (max-width: 768px) {
   .schedule {
-    padding: 1.25rem 3.25rem 1.25rem 0;
+    padding: 0 3.25rem 0 0;
     gap: 1.5rem;
   }
 
