@@ -31,8 +31,8 @@
 
 .header__logo-image {
   display: block;
-  width: 4rem;
-  height: 4rem;
+  width: 11rem;
+  height: auto;
   object-fit: contain;
 }
 
@@ -167,6 +167,10 @@
     justify-self: start;
   }
 
+  .header__logo-image {
+    width: 9rem;
+  }
+
   .header__menu-toggle {
     display: inline-flex;
     justify-self: start;
@@ -207,5 +211,11 @@
 
   .header__account {
     justify-self: end;
+  }
+}
+
+@media (max-width: 480px) {
+  .header__logo-image {
+    width: 7.5rem;
   }
 }
