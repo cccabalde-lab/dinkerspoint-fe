@@ -185,12 +185,16 @@
   padding: 0;
 }
 
+.schedule__summary-content {
+  height: 10rem;
+  min-height: 10rem;
+  overflow-y: auto;
+}
+
 .schedule__summary-list {
   display: flex;
   flex-direction: column;
   margin: 0;
-  max-height: 14rem;
-  overflow-y: auto;
 }
 
 .schedule__summary-row {

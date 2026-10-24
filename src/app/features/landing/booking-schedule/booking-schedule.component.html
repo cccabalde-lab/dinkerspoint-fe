@@ -45,19 +45,21 @@
       <mat-card-title class="schedule__summary-title">Booking Summary <span>({{ selection().length }})</span></mat-card-title>
     </mat-card-header>
     <mat-card-content class="schedule__summary">
-      @if (selection().length) {
-        <dl class="schedule__summary-list">
-          @for (sel of selection(); track sel.courtId + '-' + sel.slotLabel) {
-            <div class="schedule__summary-row">
-              <dt>{{ courtName(sel.courtId) }}</dt>
-              <dd>{{ sel.slotLabel }}</dd>
-            </div>
-          }
-        </dl>
-        <p class="schedule__summary-note">Ready to proceed with {{ selection().length }} selected {{ selection().length === 1 ? 'slot' : 'slots' }}.</p>
-      } @else {
-        <p class="schedule__summary-empty">Select one or more available time slots to see your booking details.</p>
-      }
+      <div class="schedule__summary-content">
+        @if (selection().length) {
+          <dl class="schedule__summary-list">
+            @for (sel of selection(); track sel.courtId + '-' + sel.slotLabel) {
+              <div class="schedule__summary-row">
+                <dt>{{ courtName(sel.courtId) }}</dt>
+                <dd>{{ sel.slotLabel }}</dd>
+              </div>
+            }
+          </dl>
+          <p class="schedule__summary-note">Ready to proceed with {{ selection().length }} selected {{ selection().length === 1 ? 'slot' : 'slots' }}.</p>
+        } @else {
+          <p class="schedule__summary-empty">Select one or more available time slots to see your booking details.</p>
+        }
+      </div>
     </mat-card-content>
     <mat-card-actions class="schedule__actions">
       <button mat-flat-button class="schedule__continue" type="button" [disabled]="selection().length === 0">Continue</button>
