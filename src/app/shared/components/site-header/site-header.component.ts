@@ -24,7 +24,7 @@ export class SiteHeaderComponent {
   protected readonly links: readonly NavLink[] = [
     { label: 'Home', path: '/', exact: true },
     { label: 'Maps', path: '/maps' },
-    { label: 'Bookings', path: '/bookings' }
+    { label: 'My Bookings', path: '/bookings', exact: false }
   ];
 
   protected readonly isAuthenticated = this.auth.isAuthenticated;
