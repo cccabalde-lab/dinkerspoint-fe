@@ -12,3 +12,10 @@
   display: block;
   width: 100%;
 }
+
+@media (min-width: 1201px) {
+  :host,
+  .month {
+    height: 100%;
+  }
+}
