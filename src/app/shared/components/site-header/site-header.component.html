@@ -21,7 +21,6 @@
       @for (link of links; track link.path) {
         <a
           class="header__link"
-          mat-button
           [routerLink]="link.path"
           routerLinkActive="header__link--active"
           [routerLinkActiveOptions]="{ exact: link.exact ?? true }"
@@ -47,7 +46,7 @@
           <circle cx="12" cy="10" r="3" />
           <path d="M5.8 18.4a7.2 7.2 0 0 1 12.4 0" />
         </svg>
-        <span class="header__account-label">User</span>
+        <span class="header__account-label">{{ isAuthenticated() ? 'User' : 'Account' }}</span>
       </span>
     </button>
   </mat-toolbar>
