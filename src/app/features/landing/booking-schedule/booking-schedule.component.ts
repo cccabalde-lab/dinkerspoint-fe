@@ -1,12 +1,13 @@
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { BOOKING_SCHEDULE } from '../../../data/booking-schedule.mock';
 import { BookingStatus, Court, SlotSelection, TimeSlot } from '../../../models/booking.model';
 import { BookingStatusLegendComponent } from '../../../shared/components/booking-status-legend/booking-status-legend.component';
-import { HelpButtonComponent } from '../../../shared/components/help-button/help-button.component';
 
 @Component({
   selector: 'app-booking-schedule',
-  imports: [BookingStatusLegendComponent, HelpButtonComponent],
+  imports: [BookingStatusLegendComponent, MatButtonModule, MatCardModule],
   templateUrl: './booking-schedule.component.html',
   styleUrl: './booking-schedule.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -14,8 +15,8 @@ import { HelpButtonComponent } from '../../../shared/components/help-button/help
 export class BookingScheduleComponent {
   protected readonly courts = BOOKING_SCHEDULE.courts;
 
-  /** The single slot the user has picked, if any. */
-  protected readonly selection = signal<SlotSelection | null>(null);
+  /** Available slots picked by the user. */
+  protected readonly selection = signal<readonly SlotSelection[]>([]);
 
   /** Resolves a slot's rendered status, promoting the picked slot to `selected`. */
   protected statusOf(court: Court, slot: TimeSlot): BookingStatus {
@@ -28,11 +29,12 @@ export class BookingScheduleComponent {
   }
 
   protected isSelected(court: Court, slot: TimeSlot): boolean {
-    const current = this.selection();
-    return current?.courtId === court.id && current.slotLabel === slot.label;
+    return this.selection().some(
+      (current) => current.courtId === court.id && current.slotLabel === slot.label
+    );
   }
 
-  /** Picks an available slot, or clears it when the same slot is picked twice. */
+  /** Toggles an available slot without clearing the user's other selections. */
   protected select(court: Court, slot: TimeSlot): void {
     if (this.isLocked(slot)) {
       return;
@@ -40,8 +42,8 @@ export class BookingScheduleComponent {
 
     this.selection.update((current) =>
       this.isSelected(court, slot)
-        ? null
-        : { courtId: court.id, slotLabel: slot.label }
+        ? current.filter((item) => item.courtId !== court.id || item.slotLabel !== slot.label)
+        : [...current, { courtId: court.id, slotLabel: slot.label }]
     );
   }
 

@@ -18,17 +18,25 @@
 }
 
 .policy__rules {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  padding-top: 1.125rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding-top: 0.875rem;
 }
 
 .policy__rule {
-  padding: 1rem 1.25rem;
+  padding: 0.875rem 1rem;
   background: var(--dp-color-surface-muted);
-  border: 1px solid var(--dp-color-border);
-  border-radius: var(--dp-radius-md);
+  border-radius: 1rem;
+}
+
+.policy__rule mat-card-header {
+  margin-bottom: 0.375rem;
+}
+
+.policy__rule .policy__rule-body {
+  margin: 0;
+  padding: 0;
 }
 
 .policy__rule-title {
@@ -48,5 +56,9 @@
 @media (max-width: 900px) {
   .policy__heading {
     font-size: 1.125rem;
+  }
+
+  .policy__rules {
+    grid-template-columns: 1fr;
   }
 }

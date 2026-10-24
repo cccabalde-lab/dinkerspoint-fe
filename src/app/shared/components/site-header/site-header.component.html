@@ -1,11 +1,13 @@
 <header class="header">
-  <div class="header__inner">
+  <mat-toolbar class="header__inner">
     <!-- TODO: replace the text placeholder with the real Dinkerspoint logo asset. -->
-    <a class="header__logo" routerLink="/" aria-label="Dinkerspoint home">LOGO</a>
+    <a mat-button class="header__logo" routerLink="/" aria-label="Dinkerspoint home">LOGO</a>
 
     <button
       class="header__menu-toggle"
+      mat-icon-button
       type="button"
+      aria-label="Toggle navigation menu"
       [attr.aria-expanded]="menuOpen()"
       aria-controls="header-nav"
       (click)="toggleMenu()"
@@ -18,6 +20,7 @@
       @for (link of links; track link.path) {
         <a
           class="header__link"
+          mat-button
           [routerLink]="link.path"
           routerLinkActive="header__link--active"
           [routerLinkActiveOptions]="{ exact: link.exact ?? true }"
@@ -28,7 +31,7 @@
     </nav>
 
     <!-- TODO: open the account dashboard for signed-in visitors. -->
-    <button class="header__account" type="button" (click)="onAccountClick()">
+    <button class="header__account" mat-stroked-button type="button" (click)="onAccountClick()">
       <svg
         class="header__account-icon"
         viewBox="0 0 24 24"
@@ -45,5 +48,5 @@
       </svg>
       <span class="header__account-label">Account</span>
     </button>
-  </div>
+  </mat-toolbar>
 </header>

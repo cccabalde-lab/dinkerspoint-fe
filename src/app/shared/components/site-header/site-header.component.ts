@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AuthService } from '../../../core/auth/auth.service';
 
 interface NavLink {
@@ -10,7 +12,7 @@ interface NavLink {
 
 @Component({
   selector: 'app-site-header',
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink, RouterLinkActive, MatButtonModule, MatToolbarModule],
   templateUrl: './site-header.component.html',
   styleUrl: './site-header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

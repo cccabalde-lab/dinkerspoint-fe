@@ -3,10 +3,12 @@
 
   <div class="policy__rules">
     @for (rule of rules; track rule.title) {
-      <div class="policy__rule">
-        <h3 class="policy__rule-title">{{ rule.title }}</h3>
-        <p class="policy__rule-body">{{ rule.body }}</p>
-      </div>
+      <mat-card class="policy__rule" appearance="outlined">
+        <mat-card-header>
+          <mat-card-title class="policy__rule-title">{{ rule.title }}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="policy__rule-body">{{ rule.body }}</mat-card-content>
+      </mat-card>
     }
   </div>
 </section>

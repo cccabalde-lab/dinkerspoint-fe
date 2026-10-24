@@ -1,3 +1,26 @@
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$dinkerspoint-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$cyan-palette
+    ),
+    typography: (
+      plain-family: 'Helvetica Neue, Helvetica, Arial, sans-serif',
+      brand-family: 'Helvetica Neue, Helvetica, Arial, sans-serif'
+    ),
+    density: (scale: -1)
+  )
+);
+
+html {
+  @include mat.all-component-themes($dinkerspoint-theme);
+}
+
 /* Global styles and design tokens for Dinkerspoint. */
 
 :root {
@@ -44,6 +67,31 @@
 html,
 body {
   height: 100%;
+}
+
+html {
+  /* Keep the content width fixed when a page gains or loses vertical overflow. */
+  scrollbar-gutter: stable;
+  scrollbar-color: #c5cbd1 #f5f5f5;
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c5cbd1;
+  border: 2px solid #f5f5f5;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9ba5af;
 }
 
 body {

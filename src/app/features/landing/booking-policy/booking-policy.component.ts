@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatCardModule } from '@angular/material/card';
 
 interface PolicyRule {
   readonly title: string;
@@ -7,6 +8,7 @@ interface PolicyRule {
 
 @Component({
   selector: 'app-booking-policy',
+  imports: [MatCardModule],
   templateUrl: './booking-policy.component.html',
   styleUrl: './booking-policy.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

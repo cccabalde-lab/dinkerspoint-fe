@@ -1,10 +1,8 @@
 <section class="schedule" aria-labelledby="booking-schedule-heading">
-  <h2 class="visually-hidden" id="booking-schedule-heading">Booking Schedule</h2>
-
   <div class="schedule__main">
     <header class="schedule__header">
       <div class="schedule__title-group">
-        <h2 class="schedule__title">Available Courts</h2>
+        <h1 class="schedule__title" id="booking-schedule-heading">Available Courts</h1>
         <p class="schedule__subtitle">Pick a court and time slot to reserve your session.</p>
       </div>
       <div class="schedule__legend">
@@ -14,12 +12,15 @@
 
     <div class="schedule__courts">
       @for (court of courts; track court.id) {
-        <div class="court">
-          <h3 class="court__name">{{ court.name }}</h3>
+        <mat-card class="court" appearance="outlined">
+          <mat-card-header class="court__header">
+            <mat-card-title class="court__name">{{ court.name }}</mat-card-title>
+          </mat-card-header>
 
-          <div class="court__slots">
+          <mat-card-content class="court__slots">
             @for (slot of court.slots; track slot.label) {
               <button
+                mat-stroked-button
                 class="slot slot--{{ statusOf(court, slot) }}"
                 type="button"
                 [disabled]="isLocked(slot)"
@@ -27,44 +28,40 @@
                 [attr.aria-label]="slot.label + ' at ' + court.name + ' - ' + statusOf(court, slot)"
                 (click)="select(court, slot)"
               >
-                <span class="slot__label">{{ slot.label }}</span>
-                <span class="slot__status">{{ statusLabel(statusOf(court, slot)) }}</span>
+                <span class="slot__content">
+                  <span class="slot__label">{{ slot.label }}</span>
+                  <span class="slot__status">{{ statusLabel(statusOf(court, slot)) }}</span>
+                </span>
               </button>
             }
-          </div>
-        </div>
+          </mat-card-content>
+        </mat-card>
       }
     </div>
   </div>
 
-  <aside class="schedule__panel" aria-live="polite">
-    <div class="schedule__summary">
-      <h3 class="schedule__summary-title">Booking Summary</h3>
-      @if (selection(); as sel) {
+  <mat-card class="schedule__panel" appearance="outlined" aria-live="polite">
+    <mat-card-header>
+      <mat-card-title class="schedule__summary-title">Booking Summary <span>({{ selection().length }})</span></mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="schedule__summary">
+      @if (selection().length) {
         <dl class="schedule__summary-list">
-          <div class="schedule__summary-row">
-            <dt>Court</dt>
-            <dd>{{ courtName(sel.courtId) }}</dd>
-          </div>
-          <div class="schedule__summary-row">
-            <dt>Time</dt>
-            <dd>{{ sel.slotLabel }}</dd>
-          </div>
-          <div class="schedule__summary-row">
-            <dt>Status</dt>
-            <dd>Selected</dd>
-          </div>
+          @for (sel of selection(); track sel.courtId + '-' + sel.slotLabel) {
+            <div class="schedule__summary-row">
+              <dt>{{ courtName(sel.courtId) }}</dt>
+              <dd>{{ sel.slotLabel }}</dd>
+            </div>
+          }
         </dl>
-        <p class="schedule__summary-note">Ready to proceed to confirmation.</p>
+        <p class="schedule__summary-note">Ready to proceed with {{ selection().length }} selected {{ selection().length === 1 ? 'slot' : 'slots' }}.</p>
       } @else {
-        <p class="schedule__summary-empty">Select an available slot from the courts to see your booking details.</p>
+        <p class="schedule__summary-empty">Select one or more available time slots to see your booking details.</p>
       }
-    </div>
-    <div class="schedule__actions">
-      <button class="schedule__continue" type="button" [disabled]="!selection()">Continue</button>
-      <p class="schedule__requirement">You must select a court and time slot to continue.</p>
-    </div>
-  </aside>
-
-  <app-help-button class="schedule__help" />
+    </mat-card-content>
+    <mat-card-actions class="schedule__actions">
+      <button mat-flat-button class="schedule__continue" type="button" [disabled]="selection().length === 0">Continue</button>
+      <p class="schedule__requirement">Select at least one available slot to continue.</p>
+    </mat-card-actions>
+  </mat-card>
 </section>

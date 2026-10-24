@@ -1,4 +1,18 @@
-import { BookingSchedule } from '../models/booking.model';
+import { BookingSchedule, BookingStatus, TimeSlot } from '../models/booking.model';
+
+/** Build an hourly court schedule from 8 AM to 10 PM. Unlisted hours are available. */
+function hourlySlots(overrides: Partial<Record<number, BookingStatus>>): readonly TimeSlot[] {
+  return Array.from({ length: 15 }, (_, index) => {
+    const hour = index + 8;
+    const labelHour = hour % 12 || 12;
+    const period = hour < 12 ? 'AM' : 'PM';
+
+    return {
+      label: `${labelHour} ${period}`,
+      status: overrides[hour] ?? 'available'
+    };
+  });
+}
 
 /** Months offered by the mock month selector, in calendar order. */
 export const MONTHS: readonly string[] = [
@@ -23,32 +37,17 @@ export const BOOKING_SCHEDULE: BookingSchedule = {
     {
       id: 'court-1',
       name: 'COURT 1',
-      slots: [
-        { label: '9 AM', status: 'available' },
-        { label: '10 AM', status: 'booked' },
-        { label: '11 AM', status: 'available' },
-        { label: '12 PM', status: 'closed' }
-      ]
+      slots: hourlySlots({ 10: 'booked', 12: 'closed' })
     },
     {
       id: 'court-2',
       name: 'COURT 2',
-      slots: [
-        { label: '9 AM', status: 'booked' },
-        { label: '10 AM', status: 'closed' },
-        { label: '11 AM', status: 'available' },
-        { label: '12 PM', status: 'available' }
-      ]
+      slots: hourlySlots({ 9: 'booked', 10: 'closed' })
     },
     {
       id: 'court-3',
       name: 'COURT 3',
-      slots: [
-        { label: '9 AM', status: 'available' },
-        { label: '10 AM', status: 'available' },
-        { label: '11 AM', status: 'closed' },
-        { label: '12 PM', status: 'booked' }
-      ]
+      slots: hourlySlots({ 11: 'closed', 12: 'booked' })
     }
   ]
 };
