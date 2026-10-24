@@ -125,19 +125,33 @@
 .header__account {
   display: inline-flex;
   align-items: center;
+  justify-content: flex-start;
   justify-self: end;
-  gap: 0.5rem;
-  padding: 0.375rem 0.75rem;
-  background: var(--dp-color-surface);
-  border: 1px solid var(--dp-color-border-strong);
-  border-radius: var(--dp-radius-pill);
+  min-height: 2.25rem;
+  min-width: 0;
+  padding: 0.375rem 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: var(--dp-radius-sm);
+  background: transparent;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--dp-color-text);
   cursor: pointer;
-  transition: background-color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.header__account-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
 
 .header__account:hover {
-  background: var(--dp-color-surface-muted);
-  border-color: var(--dp-color-text-muted);
+  background: transparent;
+  color: var(--dp-color-accent);
 }
 
 .header__account:focus-visible {
@@ -146,13 +160,17 @@
 }
 
 .header__account-icon {
+  display: block;
   width: 18px;
   height: 18px;
+  flex: 0 0 1.125rem;
 }
 
 .header__account-label {
+  display: block;
   font-size: 0.875rem;
-  color: var(--dp-color-text);
+  line-height: 1.2;
+  color: inherit;
 }
 
 @media (max-width: 820px) {
