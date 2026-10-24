@@ -32,21 +32,23 @@
 
     <!-- TODO: open the account dashboard for signed-in visitors. -->
     <button class="header__account" mat-button disableRipple type="button" (click)="onAccountClick()">
-      <svg
-        class="header__account-icon"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="1.6"
-        stroke-linecap="round"
-        aria-hidden="true"
-        focusable="false"
-      >
-        <circle cx="12" cy="12" r="9" />
-        <circle cx="12" cy="10" r="3" />
-        <path d="M5.8 18.4a7.2 7.2 0 0 1 12.4 0" />
-      </svg>
-      <span class="header__account-label">User</span>
+      <span class="header__account-content">
+        <svg
+          class="header__account-icon"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="10" r="3" />
+          <path d="M5.8 18.4a7.2 7.2 0 0 1 12.4 0" />
+        </svg>
+        <span class="header__account-label">User</span>
+      </span>
     </button>
   </mat-toolbar>
 </header>
