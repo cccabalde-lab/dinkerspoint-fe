@@ -68,9 +68,8 @@
 
 .court__name {
   margin: 0;
-  padding: 0.625rem 0.75rem;
-  background: var(--dp-color-surface-muted);
-  border-radius: 0.75rem;
+  padding: 0.375rem 0.5rem;
+  background: var(--dp-color-surface);
   font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -88,7 +87,7 @@
   flex-direction: column;
   gap: 0.5rem;
   min-width: 0;
-  max-height: 10.5rem;
+  max-height: 11rem;
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
