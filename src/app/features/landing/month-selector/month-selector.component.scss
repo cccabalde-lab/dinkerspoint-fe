@@ -3,9 +3,11 @@
 }
 
 .month {
-  padding: 0.75rem;
+  padding: 0.875rem;
   border: 1px solid var(--dp-color-border);
+  border-radius: var(--dp-radius-md);
   background: var(--dp-color-surface);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 2%);
 }
 
 .month__field {
@@ -15,20 +17,27 @@
 
 .month__select {
   width: 100%;
-  padding: 0.4375rem 2rem 0.4375rem 0.75rem;
+  padding: 0.5rem 2rem 0.5rem 0.875rem;
   background: var(--dp-color-surface);
   border: 1px solid var(--dp-color-border-strong);
   border-radius: var(--dp-radius-sm);
   font-size: 0.875rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--dp-color-text);
   cursor: pointer;
   appearance: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.month__select:hover {
+  border-color: var(--dp-color-text-muted);
 }
 
 .month__select:focus-visible {
   outline: 2px solid var(--dp-color-accent);
-  outline-offset: 1px;
+  outline-offset: 2px;
+  border-color: var(--dp-color-accent);
+  box-shadow: 0 0 0 1px rgb(26 157 240 / 15%);
 }
 
 .month__caret {
@@ -67,10 +76,12 @@
   justify-content: center;
   aspect-ratio: 1;
   border: 1px solid var(--dp-color-border);
-  font-size: 0.625rem;
+  border-radius: var(--dp-radius-sm);
+  font-size: 0.6875rem;
   color: var(--dp-color-text);
 }
 
 .month__day--muted {
-  color: var(--dp-color-border-strong);
+  color: var(--dp-color-text-muted);
+  opacity: 0.6;
 }

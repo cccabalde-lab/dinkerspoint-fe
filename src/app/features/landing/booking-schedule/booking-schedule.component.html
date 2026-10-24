@@ -2,9 +2,15 @@
   <h2 class="visually-hidden" id="booking-schedule-heading">Booking Schedule</h2>
 
   <div class="schedule__main">
-    <div class="schedule__legend">
-      <app-booking-status-legend />
-    </div>
+    <header class="schedule__header">
+      <div class="schedule__title-group">
+        <h2 class="schedule__title">Available Courts</h2>
+        <p class="schedule__subtitle">Pick a court and time slot to reserve your session.</p>
+      </div>
+      <div class="schedule__legend">
+        <app-booking-status-legend />
+      </div>
+    </header>
 
     <div class="schedule__courts">
       @for (court of courts; track court.id) {
@@ -18,9 +24,11 @@
                 type="button"
                 [disabled]="isLocked(slot)"
                 [attr.aria-pressed]="isSelected(court, slot)"
+                [attr.aria-label]="slot.label + ' at ' + court.name + ' - ' + statusOf(court, slot)"
                 (click)="select(court, slot)"
               >
-                {{ slot.label }}
+                <span class="slot__label">{{ slot.label }}</span>
+                <span class="slot__status">{{ statusLabel(statusOf(court, slot)) }}</span>
               </button>
             }
           </div>
@@ -29,10 +37,34 @@
     </div>
   </div>
 
-  <div class="schedule__panel">
-    <!-- TODO: hand off to the booking/payment flow once the backend exists. -->
-    <button class="schedule__continue" type="button">Continue</button>
-  </div>
+  <aside class="schedule__panel" aria-live="polite">
+    <div class="schedule__summary">
+      <h3 class="schedule__summary-title">Booking Summary</h3>
+      @if (selection(); as sel) {
+        <dl class="schedule__summary-list">
+          <div class="schedule__summary-row">
+            <dt>Court</dt>
+            <dd>{{ courtName(sel.courtId) }}</dd>
+          </div>
+          <div class="schedule__summary-row">
+            <dt>Time</dt>
+            <dd>{{ sel.slotLabel }}</dd>
+          </div>
+          <div class="schedule__summary-row">
+            <dt>Status</dt>
+            <dd>Selected</dd>
+          </div>
+        </dl>
+        <p class="schedule__summary-note">Ready to proceed to confirmation.</p>
+      } @else {
+        <p class="schedule__summary-empty">Select an available slot from the courts to see your booking details.</p>
+      }
+    </div>
+    <div class="schedule__actions">
+      <button class="schedule__continue" type="button" [disabled]="!selection()">Continue</button>
+      <p class="schedule__requirement">You must select a court and time slot to continue.</p>
+    </div>
+  </aside>
 
   <app-help-button class="schedule__help" />
 </section>

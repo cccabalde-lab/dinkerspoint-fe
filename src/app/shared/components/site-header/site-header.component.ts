@@ -1,10 +1,11 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../../core/auth/auth.service';
 
 interface NavLink {
   readonly label: string;
   readonly path: string;
+  readonly exact?: boolean;
 }
 
 @Component({
@@ -19,18 +20,28 @@ export class SiteHeaderComponent {
   private readonly router = inject(Router);
 
   protected readonly links: readonly NavLink[] = [
-    { label: 'Home', path: '/' },
+    { label: 'Home', path: '/', exact: true },
     { label: 'Maps', path: '/maps' },
     { label: 'Bookings', path: '/bookings' }
   ];
 
   protected readonly isAuthenticated = this.auth.isAuthenticated;
+  protected readonly menuOpen = signal(false);
+
+  protected toggleMenu(): void {
+    this.menuOpen.update((open) => !open);
+  }
+
+  protected closeMenu(): void {
+    this.menuOpen.set(false);
+  }
 
   /**
    * Signed-out visitors are sent to sign in. Signed-in visitors stay put until
    * the account/dashboard page exists.
    */
   protected onAccountClick(): void {
+    this.closeMenu();
     if (this.isAuthenticated()) {
       // TODO: route to the account/dashboard page once it is implemented.
       return;

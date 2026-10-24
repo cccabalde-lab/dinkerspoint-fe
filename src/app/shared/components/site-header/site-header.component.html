@@ -1,15 +1,27 @@
 <header class="header">
   <div class="header__inner">
     <!-- TODO: replace the text placeholder with the real Dinkerspoint logo asset. -->
-    <a class="header__logo" routerLink="/">LOGO</a>
+    <a class="header__logo" routerLink="/" aria-label="Dinkerspoint home">LOGO</a>
 
-    <nav class="header__nav" aria-label="Main">
+    <button
+      class="header__menu-toggle"
+      type="button"
+      [attr.aria-expanded]="menuOpen()"
+      aria-controls="header-nav"
+      (click)="toggleMenu()"
+    >
+      <span class="header__menu-icon" aria-hidden="true"></span>
+      <span class="header__menu-label">Menu</span>
+    </button>
+
+    <nav class="header__nav" id="header-nav" aria-label="Main" [class.header__nav--open]="menuOpen()">
       @for (link of links; track link.path) {
         <a
           class="header__link"
           [routerLink]="link.path"
           routerLinkActive="header__link--active"
-          [routerLinkActiveOptions]="{ exact: true }"
+          [routerLinkActiveOptions]="{ exact: link.exact ?? true }"
+          (click)="closeMenu()"
           >{{ link.label }}</a
         >
       }

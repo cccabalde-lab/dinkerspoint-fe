@@ -44,4 +44,23 @@ export class BookingScheduleComponent {
         : { courtId: court.id, slotLabel: slot.label }
     );
   }
+
+  protected courtName(courtId: string): string {
+    return this.courts.find((court) => court.id === courtId)?.name ?? courtId;
+  }
+
+  protected statusLabel(status: BookingStatus): string {
+    switch (status) {
+      case 'available':
+        return 'Available';
+      case 'booked':
+        return 'Booked';
+      case 'closed':
+        return 'Closed';
+      case 'selected':
+        return 'Selected';
+      default:
+        return status;
+    }
+  }
 }

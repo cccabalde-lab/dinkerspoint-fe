@@ -8,20 +8,35 @@
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.75rem;
+  background: var(--dp-color-surface-muted);
 }
 
 .landing__panel {
-  padding: 1.5rem clamp(1rem, 5vw, 4rem);
+  padding: 1.75rem clamp(1rem, 5vw, 4rem);
   background: var(--dp-color-surface);
   border: 1px solid var(--dp-color-border);
 }
 
 .landing__panel--policy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.landing__title {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--dp-color-text);
+}
+
+.landing__controls {
   display: grid;
-  grid-template-columns: 15rem minmax(0, 1fr);
+  grid-template-columns: 16rem minmax(0, 1fr);
   align-items: start;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 .landing__month {
@@ -29,20 +44,33 @@
 }
 
 .landing__policy {
-  max-width: 36rem;
+  max-width: 44rem;
 }
 
 @media (max-width: 900px) {
-  .landing__panel--policy {
+  .landing__controls {
     grid-template-columns: minmax(0, 1fr);
   }
 
-  /* Stop the calendar stretching across a wide single column. */
   .landing__month {
-    max-width: 15rem;
+    max-width: 18rem;
   }
 
   .landing__policy {
     max-width: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing__panel {
+    padding: 1.25rem clamp(0.875rem, 4vw, 1.25rem);
+  }
+
+  .landing__title {
+    font-size: 1.5rem;
+  }
+
+  .landing__month {
+    max-width: 100%;
   }
 }
