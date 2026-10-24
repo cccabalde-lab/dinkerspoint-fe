@@ -1,0 +1,15 @@
+<div class="tabs" role="tablist" aria-label="Booking lists">
+  @for (tab of tabs; track tab.id) {
+    <button
+      class="tabs__tab"
+      type="button"
+      role="tab"
+      [class.tabs__tab--active]="tab.id === active()"
+      [attr.aria-selected]="tab.id === active()"
+      [attr.aria-controls]="panelId()"
+      (click)="tabChange.emit(tab.id)"
+    >
+      {{ tab.label }}
+    </button>
+  }
+</div>

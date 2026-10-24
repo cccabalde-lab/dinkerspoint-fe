@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 /** Dinkerspoint's Facebook page. */
-const FACEBOOK_URL = 'https://www.facebook.com/photo/?fbid=122099144619480896';
+const FACEBOOK_URL = 'https://www.facebook.com/profile.php?id=61594426880913';
 
 @Component({
   selector: 'app-site-footer',
