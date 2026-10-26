@@ -1,0 +1,59 @@
+<div class="dialog">
+  <div class="dialog__overlay" (click)="close()"></div>
+
+  <div class="dialog__container" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+    <header class="dialog__header">
+      <h2 class="dialog__title" id="dialog-title">Booking Details</h2>
+      <button class="dialog__close" type="button" (click)="close()" aria-label="Close details">
+        <span class="dialog__close-icon" aria-hidden="true">×</span>
+      </button>
+    </header>
+
+    <section class="dialog__body">
+      @if (booking) {
+        <dl class="dialog__list">
+          <div class="dialog__row">
+            <dt class="dialog__label">Booking reference</dt>
+            <dd class="dialog__value">{{ booking.id }}</dd>
+          </div>
+
+          <div class="dialog__row">
+            <dt class="dialog__label">Date</dt>
+            <dd class="dialog__value">{{ booking.date }}</dd>
+          </div>
+
+          <div class="dialog__row">
+            <dt class="dialog__label">Time</dt>
+            <dd class="dialog__value">{{ booking.time }}</dd>
+          </div>
+
+          <div class="dialog__row">
+            <dt class="dialog__label">Court</dt>
+            <dd class="dialog__value">{{ booking.court }}</dd>
+          </div>
+
+          <div class="dialog__row">
+            <dt class="dialog__label">Total</dt>
+            <dd class="dialog__value dialog__value--total">&#8369;{{ booking.total }}</dd>
+          </div>
+
+          <div class="dialog__row">
+            <dt class="dialog__label">Status</dt>
+            <dd class="dialog__value dialog__value--status">
+              <span class="status-pill status-pill--{{ booking.status }}">
+                {{ booking.status === 'upcoming' ? 'Upcoming' : 'Completed' }}
+              </span>
+            </dd>
+          </div>
+        </dl>
+
+        <p class="dialog__note">
+          Tap anywhere outside this panel, press <kbd>Esc</kbd>, or use the close
+          button to return to your bookings.
+        </p>
+      } @else {
+        <p class="dialog__empty">Booking details are not available.</p>
+      }
+    </section>
+  </div>
+</div>
