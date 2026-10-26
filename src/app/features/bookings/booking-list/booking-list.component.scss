@@ -3,12 +3,11 @@
 }
 
 .panel {
-  padding: 1.25rem clamp(1rem, 2.5vw, 1.5rem);
+  padding: 1.5rem clamp(1rem, 4vw, 3.5rem);
   background: var(--dp-color-surface);
   border: 1px solid var(--dp-color-border);
-  border-radius: 0.75rem;
-  /* Keeps a short list from collapsing the panel, as in the reference. */
-  min-height: 18rem;
+  border-radius: var(--dp-radius-md);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
 }
 
 .panel__list {
@@ -19,6 +18,8 @@
 
 .panel__empty {
   margin: 0;
-  font-size: 0.8125rem;
+  padding-top: 1rem;
+  font-size: 0.875rem;
   color: var(--dp-color-text-muted);
+  text-align: center;
 }

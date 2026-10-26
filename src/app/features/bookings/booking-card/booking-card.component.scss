@@ -6,19 +6,18 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.875rem 1.125rem;
-  background: var(--dp-color-booking-card);
-  border: 1px solid var(--dp-color-booking-card-border);
-  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--dp-color-surface);
+  border: 1px solid var(--dp-color-border);
+  border-radius: var(--dp-radius-md);
   color: var(--dp-color-text);
   text-decoration: none;
-  transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.05s ease;
 }
 
 .card:hover {
-  background: var(--dp-color-booking-card-hover);
-  border-color: var(--dp-color-text-muted);
-  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  border-color: var(--dp-color-accent);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
 }
 
 .card:focus-visible {
@@ -26,23 +25,26 @@
   outline-offset: 2px;
 }
 
+.card:active {
+  transform: translateY(1px);
+}
+
 .card__info {
   display: flex;
-  /* Grows no, so the total sits mid-card like the reference. */
-  flex: 0 1 auto;
   flex-direction: column;
-  gap: 0.3125rem;
-  /* Still allowed to shrink before the total is pushed out. */
+  gap: 0.375rem;
   min-width: 0;
 }
 
 .card__date {
   font-size: 0.875rem;
   font-weight: 700;
+  color: var(--dp-color-text);
 }
 
 .card__line {
   font-size: 0.75rem;
+  color: var(--dp-color-text-muted);
 }
 
 .card__total {
@@ -50,6 +52,7 @@
   flex: 1 1 auto;
   min-width: 0;
   font-size: 0.75rem;
+  font-weight: 600;
   text-align: center;
 }
 
@@ -57,12 +60,13 @@
   flex: none;
   width: 14px;
   height: 14px;
-  color: var(--dp-color-text);
-  transition: transform 0.15s ease;
+  color: var(--dp-color-text-muted);
+  transition: transform 0.15s ease, color 0.15s ease;
 }
 
 .card:hover .card__chevron {
   transform: translateX(2px);
+  color: var(--dp-color-accent);
 }
 
 @media (max-width: 520px) {
@@ -70,7 +74,7 @@
   .card {
     flex-wrap: wrap;
     row-gap: 0.625rem;
-    padding: 0.75rem 0.875rem;
+    padding: 0.875rem 1rem;
   }
 
   .card__info {
