@@ -1,5 +1,7 @@
 :host {
   display: block;
+  /* Push the bookings panel to the bottom of the page when content is short. */
+  margin-top: auto;
 }
 
 .panel {
