@@ -1,13 +1,10 @@
 :host {
   display: block;
-  /* Push the bookings panel to the bottom of the page when content is short. */
-  margin-top: auto;
 }
 
 .panel {
-  padding: 1.5rem clamp(1rem, 4vw, 3.5rem);
+  padding: 1.25rem clamp(1rem, 4vw, 3rem);
   background: var(--dp-color-surface);
-  border: 1px solid var(--dp-color-border);
   border-radius: 1rem;
   box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
 }

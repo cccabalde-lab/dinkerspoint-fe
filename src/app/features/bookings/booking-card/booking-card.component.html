@@ -1,4 +1,8 @@
-<a class="card" [routerLink]="['/bookings', booking().id]">
+<button
+  class="card"
+  type="button"
+  (click)="openDetails()"
+>
   <span class="card__info">
     <span class="card__date">{{ booking().date }}</span>
     <span class="card__line">{{ booking().time }}</span>
@@ -10,10 +14,14 @@
   <svg
     class="card__chevron"
     viewBox="0 0 24 24"
-    fill="currentColor"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
     aria-hidden="true"
     focusable="false"
   >
     <path d="M8.5 5.5 15 12l-6.5 6.5V5.5Z" />
   </svg>
-</a>
+</button>
