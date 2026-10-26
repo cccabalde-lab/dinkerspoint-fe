@@ -9,7 +9,7 @@
   padding: 1rem 1.25rem;
   background: var(--dp-color-surface);
   border: 1px solid var(--dp-color-border);
-  border-radius: var(--dp-radius-md);
+  border-radius: 1rem;
   color: var(--dp-color-text);
   text-decoration: none;
   transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.05s ease;
@@ -17,7 +17,7 @@
 
 .card:hover {
   border-color: var(--dp-color-accent);
-  box-shadow: 0 4px 12px rgb(0 0 0 / 6%);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 8%);
 }
 
 .card:focus-visible {
@@ -51,15 +51,16 @@
   /* Absorbs the slack, keeping the total mid-card and the chevron hard right. */
   flex: 1 1 auto;
   min-width: 0;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.8125rem;
+  font-weight: 700;
   text-align: center;
+  color: var(--dp-color-accent);
 }
 
 .card__chevron {
   flex: none;
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   color: var(--dp-color-text-muted);
   transition: transform 0.15s ease, color 0.15s ease;
 }
